@@ -1,0 +1,34 @@
+from gasp.utils import read_yesorno
+from random import randint
+game = 1
+while game == 1:
+    stop = 0
+    guesses = 0
+    cans = randint(1, 1000)
+    q = "I'm thinking of a number between 1 and 1,000 what could it be? :"
+    while stop == 0:
+        a = int(input(q))
+        print(" ")
+        if a == cans:
+            print("Great Guess, you win !")
+            stop = stop + 1
+            guesses = guesses + 1
+            print(" ")
+        else:
+            if a < cans:
+                print("Try Higher")
+                guesses = guesses + 1
+                print(" ")
+            else:
+                if a > cans:
+                    print("Try Lower!")
+                    guesses = guesses + 1
+                    print(" ")
+    print("You took " + str(guesses) + " guesses!")
+    if read_yesorno("Would you like to play again?"):
+        game = game
+        print(" ")
+    else:
+        game = game + 1
+        print("Thank you")
+        
